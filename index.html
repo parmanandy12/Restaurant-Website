@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalayan Flavors | Authentic Nepali Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #f9a825;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --accent-color: #388e3c;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+            font-size: 2.2rem;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a i {
+            margin-right: 5px;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        .hero-btn:hover {
+            background-color: #ff8f00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2.5rem;
+            position: sticky;
+            top: 80px;
+            background-color: white;
+            padding: 15px 0;
+            z-index: 100;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
+        .category-btn {
+            background-color: #eee;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .item-image {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .item-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-right: 10px;
+        }
+
+        .item-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+
+        .item-price span {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .item-desc {
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .item-tag {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: var(--accent-color);
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .add-to-cart {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #ff8f00;
+        }
+
+        /* Order Summary Sidebar */
+        .order-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .order-sidebar.active {
+            right: 0;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .close-order {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .order-items {
+            margin-bottom: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-item-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .order-item-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .order-item-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            background-color: #eee;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quantity {
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        .order-item-price {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-left: 15px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #d32f2f;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .order-summary {
+            padding: 1.5rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .summary-row.total {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .checkout-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .checkout-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .checkout-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Special Dish Highlight */
+        .special-dish {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0;
+            margin: 3rem 0;
+        }
+
+        .special-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .special-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .special-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .special-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 8px;
+            background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1rem 0;
+            scrollbar-width: thin;
+        }
+
+        .testimonial {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 2rem;
+            min-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Order Modal */
+        .order-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .order-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .submit-order-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-order-btn:hover {
+            background-color: #388e3c;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 4000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+
+        .notification.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .order-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .menu-categories {
+                top: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-mountain"></i>
+                <h1>Himalayan <span>Flavors</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#menu"><i class="fas fa-utensils"></i> Menu</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                    <li>
+                        <a href="#" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="nav-btn" id="reserveBtn">Reserve Table</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Authentic Nepali Cuisine</h2>
+            <p>Experience the rich flavors of the Himalayas with our traditional recipes passed down through generations. Each dish tells a story of Nepal's diverse culture and culinary heritage.</p>
+            <button class="hero-btn" id="viewMenuBtn">View Our Menu</button>
+            <button class="hero-btn" id="orderNowBtn">Order Online</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu</h2>
+                <p>Discover authentic Himalayan flavors - 50+ dishes to choose from</p>
+            </div>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">All Dishes</button>
+                <button class="category-btn" data-category="starters">Starters & Appetizers</button>
+                <button class="category-btn" data-category="mains">Main Course</button>
+                <button class="category-btn" data-category="rice">Rice & Noodles</button>
+                <button class="category-btn" data-category="bread">Breads</button>
+                <button class="category-btn" data-category="curries">Curries</button>
+                <button class="category-btn" data-category="drinks">Drinks</button>
+                <button class="category-btn" data-category="desserts">Desserts</button>
+            </div>
+            
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Dish Highlight -->
+    <section class="special-dish">
+        <div class="container special-content">
+            <div class="special-text">
+                <h3>Chef's Special: Khasi Ko Masu</h3>
+                <p>Our signature dish, Khasi Ko Masu, is a slow-cooked goat curry with traditional Nepali spices. Prepared with a secret family recipe that has been passed down for three generations, this dish is a perfect blend of aromatic spices and tender meat.</p>
+                <p>Every weekend, our chef prepares a limited batch of this delicacy. Reserve your portion in advance to avoid disappointment.</p>
+                <p style="margin-top: 1rem; font-weight: bold; color: var(--secondary-color);">Only NPR 850 per serving</p>
+                <button class="hero-btn" id="addSpecialBtn" style="margin-top: 1.5rem;">Add to Order</button>
+            </div>
+            <div class="special-image"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Serving Authentic Nepali Cuisine Since 2010</h3>
+                    <p>Founded by Master Chef Rajendra Thapa, Himalayan Flavors brings the authentic taste of Nepal to your table. With recipes passed down through generations, we're committed to preserving the culinary heritage of the Himalayas.</p>
+                    <p>Our ingredients are sourced directly from local farmers in Nepal, ensuring freshness and supporting sustainable agriculture. Each dish is prepared with care, using traditional cooking methods that have stood the test of time.</p>
+                    <p>Whether you're craving the spicy flavors of Newari cuisine or the comforting warmth of a Thakali thali, our menu offers something for everyone. Come experience the taste of Nepal at Himalayan Flavors!</p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "The best Nepali food I've had outside of Nepal! The momos are absolutely divine and the service is exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Authentic flavors that transport me back to my childhood in Kathmandu. The Thakali Khana Set is a must-try!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Rajesh Gurung</h4>
+                            <p>Food Critic</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "I order from Himalayan Flavors at least twice a week. Their online ordering system is so convenient!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Emily Chen</h4>
+                            <p>Delivery Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Himalayan Flavors</h3>
+                    <p>Bringing authentic Nepali cuisine to your table since 2010. Our mission is to share the rich culinary heritage of Nepal with food lovers around the world.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</li>
+                        <li><i class="fas fa-phone"></i> +977 1-1234567</li>
+                        <li><i class="fas fa-envelope"></i> info@himalayanflavors.com</li>
+                        <li><i class="fas fa-clock"></i> Open daily: 11:00 AM - 10:00 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" id="footerOrderBtn">Order Online</a></li>
+                        <li><a href="#" id="footerReserveBtn">Reservations</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Himalayan Flavors. All rights reserved. | Prices in NPR (Nepalese Rupees)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Summary Sidebar -->
+    <div class="order-sidebar" id="orderSidebar">
+        <div class="order-header">
+            <h3>Your Order</h3>
+            <button class="close-order" id="closeOrderBtn">&times;</button>
+        </div>
+        <div class="order-items" id="orderItems">
+            <!-- Order items will be dynamically inserted here -->
+        </div>
+        <div class="order-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">NPR 0</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax (13%)</span>
+                <span id="tax">NPR 0</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery Fee</span>
+                <span id="deliveryFee">NPR 100</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="total">NPR 0</span>
+            </div>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn" disabled>Proceed to Checkout</button>
+    </div>
+
+    <!-- Order Modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Complete Your Order</h3>
+                <button class="close-modal" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number *</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail">
+                </div>
+                <div class="form-group">
+                    <label for="deliveryAddress">Delivery Address *</label>
+                    <textarea id="deliveryAddress" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryTime">Preferred Delivery Time</label>
+                    <select id="deliveryTime">
+                        <option value="asap">As soon as possible</option>
+                        <option value="30min">Within 30 minutes</option>
+                        <option value="1hour">Within 1 hour</option>
+                        <option value="2hour">Within 2 hours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialInstructions">Special Instructions</label>
+                    <textarea id="specialInstructions" rows="3" placeholder="Any special requests or allergy information..."></textarea>
+                </div>
+                <button type="submit" class="submit-order-btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Item added to cart!
+    </div>
+
+    <script>
+        // Extensive Menu Data (50+ dishes)
+        const menuItems = [
+            // Starters & Appetizers (12 items)
+            {
+                id: 1,
+                name: "Momo (Steamed Dumplings)",
+                category: "starters",
+                price: 320,
+                description: "Traditional Nepali dumplings filled with spiced minced meat or vegetables, served with sesame tomato chutney.",
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Popular"
+            },
+            {
+                id: 2,
+                name: "Chicken Choila",
+                category: "starters",
+                price: 380,
+                description: "Grilled chicken marinated in mustard oil, timur (Sichuan pepper), and traditional spices.",
+                image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Spicy"
+            },
+            {
+                id: 3,
+                name: "Sukuti",
+                category: "starters",
+                price: 350,
+                description: "Spicy dried meat (buffalo or goat) grilled with traditional Nepali spices.",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 4,
+                name: "Aloo Tama Bodi",
+                category: "starters",
+                price: 280,
+                description: "Unique curry made with potatoes, bamboo shoots, and black-eyed peas.",
+                image: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegan"
+            },
+            {
+                id: 5,
+                name: "Chatamari",
+                category: "starters",
+                price: 300,
+                description: "Newari rice crepe topped with minced meat, eggs, and spices.",
+                image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Newari Special"
+            },
+            {
+                id: 6,
+                name: "Sadeko (Mixed Pickle)",
+                category: "starters",
+                price: 220,
+                description: "Spicy mixed pickle with potatoes, tomatoes, onions, and timur.",
+                image: "https://images.unsplash.com/photo-1540420828642-fca2c5c18abb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Spicy"
+            },
+            {
+                id: 7,
+                name: "Kachila",
+                category: "starters",
+                price: 360,
+                description: "Raw minced buffalo meat marinated with spices and mustard oil.",
+                image: "https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Newari Special"
+            },
+            {
+                id: 8,
+                name: "Paneer Tikka",
+                category: "starters",
+                price: 340,
+                description: "Grilled cottage cheese marinated in spices and yogurt.",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 9,
+                name: "Aloo Chop",
+                category: "starters",
+                price: 240,
+                description: "Spiced potato patties coated in chickpea batter and deep-fried.",
+                image: "https://images.unsplash.com/photo-1589647363585-f4a7d3877b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 10,
+                name: "Chicken Sekuwa",
+                category: "starters",
+                price: 420,
+                description: "Grilled chicken skewers marinated in Nepali spices.",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Popular"
+            },
+            {
+                id: 11,
+                name: "Vegetable Pakora",
+                category: "starters",
+                price: 260,
+                description: "Mixed vegetables dipped in chickpea batter and deep-fried.",
+                image: "https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 12,
+                name: "Buffalo Sukuti",
+                category: "starters",
+                price: 400,
+                description: "Spicy dried buffalo meat grilled with traditional spices.",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Special"
+            },
+            
+            // Main Course (15 items)
+            {
+                id: 13,
+                name: "Thakali Khana Set",
+                category: "mains",
+                price: 650,
+                description: "Complete Thakali meal with rice, lentil soup, seasonal vegetables, spinach, chicken curry, pickles, and curd.",
+                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 14,
+                name: "Dal Bhat Tarkari",
+                category: "mains",
+                price: 450,
+                description: "Steamed rice served with lentil soup, vegetable curry, pickles, and papad.",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 15,
+                name: "Khasi Ko Masu (Goat Curry)",
+                category: "mains",
+                price: 580,
+                description: "Slow-cooked goat curry with traditional Nepali spices.",
+                image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Chef's Special"
+            },
+            {
+                id: 16,
+                name: "Buffalo Curry",
+                category: "mains",
+                price: 520,
+                description: "Rich buffalo meat curry cooked with traditional spices.",
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Spicy"
+            },
+            {
+                id: 17,
+                name: "Chicken Curry",
+                category: "mains",
+                price: 480,
+                description: "Classic Nepali chicken curry with aromatic spices.",
+                image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Popular"
+            },
+            {
+                id: 18,
+                name: "Vegetable Thali",
+                category: "mains",
+                price: 420,
+                description: "Vegetarian platter with rice, dal, three vegetable curries, pickles, and dessert.",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 19,
+                name: "Pork Curry",
+                category: "mains",
+                price: 540,
+                description: "Pork cooked in a rich gravy with Nepali spices.",
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Special"
+            },
+            {
+                id: 20,
+                name: "Fish Curry",
+                category: "mains",
+                price: 560,
+                description: "River fish cooked in a spicy tomato-based curry.",
+                image: "https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Spicy"
+            },
+            {
+                id: 21,
+                name: "Mushroom Curry",
+                category: "mains",
+                price: 380,
+                description: "Fresh mushrooms cooked in a creamy curry sauce.",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 22,
+                name: "Egg Curry",
+                category: "mains",
+                price: 320,
+                description: "Hard-boiled eggs in a spicy tomato-based curry.",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 23,
+                name: "Paneer Curry",
+                category: "mains",
+                price: 400,
+                description: "Cottage cheese cubes in a rich, creamy curry.",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 24,
+                name: "Mutton Curry",
+                category: "mains",
+                price: 600,
+                description: "Tender mutton cooked in a flavorful gravy.",
+                image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Special"
+            },
+            {
+                id: 25,
+                name: "Chicken Tikka Masala",
+                category: "mains",
+                price: 520,
+                description: "Grilled chicken in a creamy tomato-based sauce.",
+                image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Popular"
+            },
+            {
+                id: 26,
+                name: "Mixed Vegetable Curry",
+                category: "mains",
+                price: 360,
+                description: "Seasonal vegetables cooked in a light curry.",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 27,
+                name: "Chicken Bhutuwa",
+                category: "mains",
+                price: 480,
+                description: "Stir-fried chicken with bell peppers and onions.",
+                image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Spicy"
+            },
+            
+            // Rice & Noodles (8 items)
+            {
+                id: 28,
+                name: "Vegetable Thukpa",
+                category: "rice",
+                price: 350,
+                description: "Hearty noodle soup with seasonal vegetables, infused with Himalayan herbs.",
+                image: "https://images.unsplash.com/photo-1552611052-169b6c4d3c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Comfort Food"
+            },
+            {
+                id: 29,
+                name: "Chicken Chow Mein",
+                category: "rice",
+                price: 420,
+                description: "Stir-fried noodles with chicken, fresh vegetables, and Nepali-style spices.",
+                image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Popular"
+            },
+            {
+                id: 30,
+                name: "Vegetable Fried Rice",
+                category: "rice",
+                price: 320,
+                description: "Stir-fried rice with mixed vegetables and eggs.",
+                image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 31,
+                name: "Chicken Fried Rice",
+                category: "rice",
+                price: 380,
+                description: "Stir-fried rice with chicken, vegetables, and eggs.",
+                image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Popular"
+            },
+            {
+                id: 32,
+                name: "Buff Fried Rice",
+                category: "rice",
+                price: 420,
+                description: "Stir-fried rice with buffalo meat and vegetables.",
+                image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Special"
+            },
+            {
+                id: 33,
+                name: "Chicken Thukpa",
+                category: "rice",
+                price: 400,
+                description: "Hearty noodle soup with chicken and vegetables.",
+                image: "https://images.unsplash.com/photo-1552611052-169b6c4d3c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Comfort Food"
+            },
+            {
+                id: 34,
+                name: "Veg Hakka Noodles",
+                category: "rice",
+                price: 340,
+                description: "Stir-fried noodles with mixed vegetables.",
+                image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 35,
+                name: "Egg Fried Rice",
+                category: "rice",
+                price: 300,
+                description: "Stir-fried rice with eggs and vegetables.",
+                image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            
+            // Breads (5 items)
+            {
+                id: 36,
+                name: "Roti/Chapati",
+                category: "bread",
+                price: 40,
+                description: "Whole wheat flatbread, freshly made.",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Staple"
+            },
+            {
+                id: 37,
+                name: "Paratha",
+                category: "bread",
+                price: 80,
+                description: "Layered flatbread, plain or stuffed.",
+                image: "https://images.unsplash.com/photo-1589647363585-f4a7d3877b10?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Buttery"
+            },
+            {
+                id: 38,
+                name: "Aloo Paratha",
+                category: "bread",
+                price: 120,
+                description: "Stuffed flatbread with spiced potatoes.",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 39,
+                name: "Puri",
+                category: "bread",
+                price: 100,
+                description: "Deep-fried puffed bread.",
+                image: "https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Fried"
+            },
+            {
+                id: 40,
+                name: "Naan",
+                category: "bread",
+                price: 90,
+                description: "Leavened oven-baked flatbread.",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Soft"
+            },
+            
+            // Curries (5 items)
+            {
+                id: 41,
+                name: "Aloo Tama",
+                category: "curries",
+                price: 320,
+                description: "Unique curry made with potatoes and bamboo shoots, a Newari specialty.",
+                image: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 42,
+                name: "Rayo Saag",
+                category: "curries",
+                price: 280,
+                description: "Mustard greens cooked with garlic and spices.",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 43,
+                name: "Gundruk Ko Jhol",
+                category: "curries",
+                price: 260,
+                description: "Fermented leafy green vegetable soup.",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 44,
+                name: "Chana Masala",
+                category: "curries",
+                price: 300,
+                description: "Chickpeas cooked in a spicy tomato gravy.",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            {
+                id: 45,
+                name: "Matar Paneer",
+                category: "curries",
+                price: 380,
+                description: "Peas and cottage cheese in a creamy curry.",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Vegetarian"
+            },
+            
+            // Drinks (6 items)
+            {
+                id: 46,
+                name: "Masala Chiya",
+                category: "drinks",
+                price: 120,
+                description: "Traditional Nepali tea brewed with milk, ginger, cardamom, and aromatic spices.",
+                image: "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 47,
+                name: "Tongba",
+                category: "drinks",
+                price: 280,
+                description: "Traditional fermented millet beverage from the Himalayan region, served warm.",
+                image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 48,
+                name: "Lassi",
+                category: "drinks",
+                price: 180,
+                description: "Yogurt-based drink, sweet or salty.",
+                image: "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Refreshing"
+            },
+            {
+                id: 49,
+                name: "Nimbu Paani",
+                category: "drinks",
+                price: 100,
+                description: "Fresh lemonade with mint and spices.",
+                image: "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Refreshing"
+            },
+            {
+                id: 50,
+                name: "Chhang",
+                category: "drinks",
+                price: 250,
+                description: "Traditional rice beer from the Himalayas.",
+                image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 51,
+                name: "Fresh Fruit Juice",
+                category: "drinks",
+                price: 200,
+                description: "Seasonal fresh fruit juice (mango, orange, pineapple).",
+                image: "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Healthy"
+            },
+            
+            // Desserts (6 items)
+            {
+                id: 52,
+                name: "Sel Roti",
+                category: "desserts",
+                price: 180,
+                description: "Traditional Nepali homemade, sweet, ring-shaped rice doughnut.",
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Sweet"
+            },
+            {
+                id: 53,
+                name: "Juju Dhau",
+                category: "desserts",
+                price: 150,
+                description: "King of yogurt' - a creamy, sweet yogurt specialty from Bhaktapur.",
+                image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Special"
+            },
+            {
+                id: 54,
+                name: "Gulab Jamun",
+                category: "desserts",
+                price: 160,
+                description: "Deep-fried milk balls soaked in sugar syrup.",
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Sweet"
+            },
+            {
+                id: 55,
+                name: "Rasbari",
+                category: "desserts",
+                price: 140,
+                description: "Cottage cheese balls in sweet syrup.",
+                image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Sweet"
+            },
+            {
+                id: 56,
+                name: "Kheer",
+                category: "desserts",
+                price: 120,
+                description: "Rice pudding with cardamom and nuts.",
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Traditional"
+            },
+            {
+                id: 57,
+                name: "Ice Cream",
+                category: "desserts",
+                price: 200,
+                description: "Homemade ice cream in seasonal flavors.",
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                tag: "Cold"
+            }
+        ];
+
+        // DOM elements
+        const menuItemsContainer = document.getElementById('menuItems');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const viewMenuBtn = document.getElementById('viewMenuBtn');
+        const orderNowBtn = document.getElementById('orderNowBtn');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.getElementById('cartCount');
+        const orderSidebar = document.getElementById('orderSidebar');
+        const closeOrderBtn = document.getElementById('closeOrderBtn');
+        const orderItemsContainer = document.getElementById('orderItems');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const orderModal = document.getElementById('orderModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const orderForm = document.getElementById('orderForm');
+        const notification = document.getElementById('notification');
+        const reserveBtn = document.getElementById('reserveBtn');
+        const addSpecialBtn = document.getElementById('addSpecialBtn');
+        const footerOrderBtn = document.getElementById('footerOrderBtn');
+        const footerReserveBtn = document.getElementById('footerReserveBtn');
+
+        // Cart state
+        let cart = [];
+        const TAX_RATE = 0.13;
+        const DELIVERY_FEE = 100;
+
+        // Function to render menu items
+        function renderMenuItems(filterCategory = 'all') {
+            menuItemsContainer.innerHTML = '';
+            
+            const filteredItems = filterCategory === 'all' 
+                ? menuItems 
+                : menuItems.filter(item => item.category === filterCategory);
+            
+            filteredItems.forEach(item => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.className = 'menu-item';
+                menuItemElement.innerHTML = `
+                    <div class="item-image" style="background-image: url('${item.image}')"></div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h3 class="item-title">${item.name}</h3>
+                            <div class="item-price">NPR ${item.price}</div>
+                        </div>
+                        <p class="item-desc">${item.description}</p>
+                        <div class="item-footer">
+                            <span class="item-tag">${item.tag}</span>
+                            <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                menuItemsContainer.appendChild(menuItemElement);
+            });
+            
+            // Add event listeners to add-to-cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const itemId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(itemId);
+                });
+            });
+        }
+
+        // Function to add item to cart
+        function addToCart(itemId) {
+            const item = menuItems.find(i => i.id === itemId);
+            const existingItem = cart.find(i => i.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...item,
+                    quantity: 1
+                });
+            }
+            
+            updateCartDisplay();
+            showNotification(`${item.name} added to cart!`);
+        }
+
+        // Function to update cart display
+        function updateCartDisplay() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update order sidebar
+            orderItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                orderItemsContainer.innerHTML = '<p style="text-align: center; color: #777;">Your cart is empty</p>';
+                checkoutBtn.disabled = true;
+            } else {
+                cart.forEach(item => {
+                    const orderItemElement = document.createElement('div');
+                    orderItemElement.className = 'order-item';
+                    orderItemElement.innerHTML = `
+                        <div class="order-item-info">
+                            <h4>${item.name}</h4>
+                            <p>NPR ${item.price} each</p>
+                        </div>
+                        <div class="order-item-controls">
+                            <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                            <span class="order-item-price">NPR ${item.price * item.quantity}</span>
+                            <button class="remove-item" data-id="${item.id}">Remove</button>
+                        </div>
+                    `;
+                    orderItemsContainer.appendChild(orderItemElement);
+                });
+                
+                checkoutBtn.disabled = false;
+                
+                // Add event listeners to quantity buttons
+                document.querySelectorAll('.quantity-btn.minus').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const itemId = parseInt(e.target.getAttribute('data-id'));
+                        updateQuantity(itemId, -1);
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.plus').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const itemId = parseInt(e.target.getAttribute('data-id'));
+                        updateQuantity(itemId, 1);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const itemId = parseInt(e.target.getAttribute('data-id'));
+                        removeFromCart(itemId);
+                    });
+                });
+            }
+            
+            // Update order summary
+            updateOrderSummary();
+        }
+
+        // Function to update item quantity
+        function updateQuantity(itemId, change) {
+            const item = cart.find(i => i.id === itemId);
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== itemId);
+                }
+                
+                updateCartDisplay();
+            }
+        }
+
+        // Function to remove item from cart
+        function removeFromCart(itemId) {
+            cart = cart.filter(i => i.id !== itemId);
+            updateCartDisplay();
+            showNotification('Item removed from cart');
+        }
+
+        // Function to update order summary
+        function updateOrderSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * TAX_RATE;
+            const total = subtotal + tax + DELIVERY_FEE;
+            
+            document.getElementById('subtotal').textContent = `NPR ${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `NPR ${tax.toFixed(2)}`;
+            document.getElementById('deliveryFee').textContent = `NPR ${DELIVERY_FEE.toFixed(2)}`;
+            document.getElementById('total').textContent = `NPR ${total.toFixed(2)}`;
+        }
+
+        // Function to show notification
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.classList.add('active');
+            
+            setTimeout(() => {
+                notification.classList.remove('active');
+            }, 3000);
+        }
+
+        // Function to place order
+        function placeOrder(orderDetails) {
+            // In a real application, this would send data to a server
+            console.log('Order placed:', {
+                ...orderDetails,
+                items: cart,
+                subtotal: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                tax: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) * TAX_RATE,
+                deliveryFee: DELIVERY_FEE,
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) * (1 + TAX_RATE) + DELIVERY_FEE,
+                orderTime: new Date().toISOString()
+            });
+            
+            // Show success message
+            showNotification('Order placed successfully! Thank you for your order.');
+            
+            // Reset cart
+            cart = [];
+            updateCartDisplay();
+            
+            // Close modals
+            orderSidebar.classList.remove('active');
+            orderModal.classList.remove('active');
+            
+            // Reset form
+            orderForm.reset();
+        }
+
+        // Initialize menu with all items
+        renderMenuItems();
+
+        // Event Listeners
+
+        // Category filter functionality
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter menu items
+                const category = button.getAttribute('data-category');
+                renderMenuItems(category);
+                
+                // Scroll to menu section
+                document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Smooth scroll to menu section
+        viewMenuBtn.addEventListener('click', () => {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Open order sidebar
+        orderNowBtn.addEventListener('click', () => {
+            orderSidebar.classList.add('active');
+        });
+
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            orderSidebar.classList.add('active');
+        });
+
+        // Close order sidebar
+        closeOrderBtn.addEventListener('click', () => {
+            orderSidebar.classList.remove('active');
+        });
+
+        // Open order modal
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length > 0) {
+                orderModal.classList.add('active');
+            }
+        });
+
+        // Close order modal
+        closeModalBtn.addEventListener('click', () => {
+            orderModal.classList.remove('active');
+        });
+
+        // Submit order form
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const orderDetails = {
+                name: document.getElementById('customerName').value,
+                phone: document.getElementById('customerPhone').value,
+                email: document.getElementById('customerEmail').value,
+                address: document.getElementById('deliveryAddress').value,
+                deliveryTime: document.getElementById('deliveryTime').value,
+                instructions: document.getElementById('specialInstructions').value
+            };
+            
+            placeOrder(orderDetails);
+        });
+
+        // Reserve table button functionality
+        reserveBtn.addEventListener('click', () => {
+            alert('Thank you for your interest! Please call +977 1-1234567 to reserve a table.');
+        });
+
+        // Add special dish to cart
+        addSpecialBtn.addEventListener('click', () => {
+            const specialDish = {
+                id: 999,
+                name: "Khasi Ko Masu (Chef's Special)",
+                price: 850,
+                quantity: 1
+            };
+            
+            cart.push(specialDish);
+            updateCartDisplay();
+            showNotification("Chef's Special added to cart!");
+            orderSidebar.classList.add('active');
+        });
+
+        // Footer buttons
+        footerOrderBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            orderSidebar.classList.add('active');
+        });
+
+        footerReserveBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! Please call +977 1-1234567 to reserve a table.');
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                orderModal.classList.remove('active');
+            }
+        });
+
+        // Initialize cart display
+        updateCartDisplay();
+    </script>
+</body>
+</html>
